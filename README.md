@@ -1,17 +1,17 @@
-<div align="center">
-  <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 # Personal Portfolio
 
-A modern, single-page personal portfolio built with React + Vite. The site highlights experience, projects, and technical stack with animated sections and a clean, production-ready layout.
+A modern, single-page personal portfolio built with React + Vite. It presents experience, projects, and technical stack with animated sections and a clean, production-ready layout.
 
-## Features
+## What This Project Is About
 
-- Animated sections and reveal effects powered by Motion
+This is a personal portfolio site focused on showcasing professional experience, technical skills, and project work in a fast, responsive UI.
+
+## Highlights
+
+- Motion-based section reveals and subtle animations
 - Responsive layout with Tailwind CSS styling
-- Project cards that open GitHub repositories in a new tab
-- Modular content in a single source file for quick edits
+- Project cards link out to GitHub repositories
+- Content is centralized in a single source file for quick edits
 
 ## Tech Stack
 
@@ -31,26 +31,57 @@ src/
   main.tsx        # App entry point
 ```
 
-## Getting Started
+## Local Development
 
 Prerequisites: Node.js (LTS recommended)
 
+Direct npm workflow:
+
 1. Install dependencies:
-   ```bash
-   npm install
-   ```
+  ```bash
+  npm install
+  ```
 2. Run the dev server:
-   ```bash
-   npm run dev
-   ```
+  ```bash
+  npm run dev
+  ```
 3. Open the app at http://localhost:3000
 
-## Build and Preview
+Containerized workflow (Docker):
+
+```bash
+docker build -t portfolio .
+docker run --rm -p 8080:80 portfolio
+```
+
+Open the app at http://localhost:8080
+
+## Build and Preview (Local)
 
 ```bash
 npm run build
 npm run preview
 ```
+
+## Deployment (GitHub Pages)
+
+1. Set the Vite base path in vite.config.ts to your repo name:
+  ```ts
+  export default defineConfig({
+    base: "/<your-repo-name>/",
+    // ...rest of config
+  });
+  ```
+2. Build the site:
+  ```bash
+  npm run build
+  ```
+3. Publish the dist/ folder to GitHub Pages.
+
+You can publish using either:
+
+- GitHub Actions (recommended) to deploy dist/ on every push, or
+- A gh-pages branch by committing the dist/ output to it.
 
 ## Updating Content
 
